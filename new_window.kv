@@ -1,0 +1,31 @@
+Organizer:
+    WelcomeScreen:
+    PathScreen:
+
+<WelcomeScreen>:
+    name: "first"
+    GridLayout:
+        cols: 1
+        Label:
+            text: "Hey there"
+            font_size: 16
+        Button:
+            text: "Take me in!"
+            font_size: 16
+            on_release: 
+                app.root.current = "second" 
+                root.manager.transition.direction = "up"
+
+
+    
+<PathScreen>:
+    name: "second"
+    GridLayout:
+        cols: 1
+    
+        Button:
+            text: "Organize!"
+            font_size: 16
+            on_release: 
+                app.root.current = "first" 
+                root.manager.transition.direction = "down"
