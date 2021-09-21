@@ -4,28 +4,65 @@ Organizer:
 
 <WelcomeScreen>:
     name: "first"
+    Image:
+        source: "./assets/logo.png"
+        size_hint: 0.9, 0.9
+        pos_hint: {'center_x': 0.5, 'center_y': 0.80}
     GridLayout:
         cols: 1
+        size_hint: (0.4, 0.5)
+        pos_hint: {"center_x": 0.5, "center_y":0.5}
+   
         Label:
-            text: "Hey there"
-            font_size: 16
+            size: self.texture_size
+            color: "#C34A36"
+            text: "Hey there! What can I call you?"
+            font_size: 20
+
+        TextInput:
+            multiline: False
+            padding: [20, 20, 20, 20]
+            size_hint: (1, 0.4)
+            
+
         Button:
-            text: "Take me in!"
-            font_size: 16
+            text: "Go"
+            font_size: 18
+            bold: True
+            size_hint:(1,0.4)
+            # padding: [20, 20, 20, 20]
+            background_color: "#C34A36"
             on_release: 
                 app.root.current = "second" 
                 root.manager.transition.direction = "up"
-
-
-    
 <PathScreen>:
     name: "second"
+    Image:
+        source: "./assets/logo.png"
+        size_hint: 0.9, 0.9
+        pos_hint: {'center_x': 0.5, 'center_y':0.80}
     GridLayout:
         cols: 1
-    
+        size_hint: (0.4, 0.5)
+        pos_hint: {"center_x": 0.5, "center_y":0.5}
+   
+        Label:
+            size: self.texture_size
+            color: "#C34A36"
+            text: "Please paste the full path of the messy folder!"
+            font_size: 20
+
+        TextInput:
+            multiline: False
+            padding: [20, 20, 20, 20]
+            size_hint: (1, 0.4)  
         Button:
-            text: "Organize!"
-            font_size: 16
+            text: "Do The Magic!"
+            font_size: 18
+            bold: True
+            size_hint:(1,0.4)
+            # padding: [20, 20, 20, 20]
+            background_color: "#C34A36"
             on_release: 
                 app.root.current = "first" 
                 root.manager.transition.direction = "down"

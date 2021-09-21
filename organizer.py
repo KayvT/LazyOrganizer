@@ -12,6 +12,9 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 
+from kivy.core.window import Window
+Window.clearcolor = (1, 1, 1, 1)
+
 #Screens
 class PathScreen(Screen):
     pass
