@@ -1,6 +1,9 @@
+#:kivy 2.0.0
+
 Organizer:
     WelcomeScreen:
     PathScreen:
+    LoadingScreen:
 
 <WelcomeScreen>:
     name: "first"
@@ -23,8 +26,6 @@ Organizer:
             multiline: False
             padding: [20, 20, 20, 20]
             size_hint: (1, 0.4)
-            
-
         Button:
             text: "Go"
             font_size: 18
@@ -53,6 +54,7 @@ Organizer:
             font_size: 20
 
         TextInput:
+            id: maininput
             multiline: False
             padding: [20, 20, 20, 20]
             size_hint: (1, 0.4)  
@@ -63,6 +65,19 @@ Organizer:
             size_hint:(1,0.4)
             # padding: [20, 20, 20, 20]
             background_color: "#C34A36"
-            on_release: 
-                app.root.current = "first" 
-                root.manager.transition.direction = "down"
+            on_press:app.print_path(maininput.text); app.root.current = "third"; root.manager.transition.direction = "up"
+<LoadingScreen>:
+    name: "third"
+    GridLayout:
+        cols: 1
+        size_hint: (0.4, 0.5)
+        pos_hint: {"center_x": 0.5, "center_y":0.5}
+        Label:
+            size: self.texture_size
+            color: "#C34A36"
+            text: "Please wait while I do your work for you.."
+            font_size: 30
+        ProgressBar:
+            value: 0
+            max: 100
+       

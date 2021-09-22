@@ -11,29 +11,35 @@ from kivy.uix.image import Image
 from kivy.uix.textinput import TextInput
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
-
+from kivy.uix.progressbar import ProgressBar
+#sOverriding
 from kivy.core.window import Window
 Window.clearcolor = (1, 1, 1, 1)
 
 #Screens
 class PathScreen(Screen):
     pass
-
+class LoadingScreen(Screen):
+    pass
 class WelcomeScreen(Screen):
     pass
-
-
-#Design Files
-
-
 class Organizer(ScreenManager):
+    path_screen_obj = PathScreen()
+    
     pass
+
+#Builder
 kv = Builder.load_file('new_window.kv')
 
-#Manager
+#MainApp
 class MyApp(App):
     def build(self):
         return kv
+
+    def print_path(self, path):
+
+        print(path)
+
 
 
 
