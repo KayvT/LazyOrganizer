@@ -65,19 +65,16 @@ Organizer:
             size_hint:(1,0.4)
             # padding: [20, 20, 20, 20]
             background_color: "#C34A36"
-            on_press:app.print_path(maininput.text); app.root.current = "third"; root.manager.transition.direction = "up"
+            on_press:app.print_path(maininput.text); app.root.current = "third"; root.manager.transition.direction = "up";
 <LoadingScreen>:
     name: "third"
     GridLayout:
         cols: 1
-        size_hint: (0.4, 0.5)
+        size_hint: (0.9, 0.9)
         pos_hint: {"center_x": 0.5, "center_y":0.5}
         Label:
             size: self.texture_size
             color: "#C34A36"
             text: "Please wait while I do your work for you.."
             font_size: 30
-        ProgressBar:
-            value: 0
-            max: 100
        
