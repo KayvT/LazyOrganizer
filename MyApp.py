@@ -82,27 +82,28 @@ kv = Builder.load_file('new_window.kv')
 
 #MainApp
 class MyApp(App):
+
     def build(self):
+        self.title = "Lazy Organizer"
+        self.icon = "./assets/window_icon.png"
         return kv
 
     def print_path(self, path):
-        print(path)
-        self.files_to_be_moved = [f'{path}\{file_}' for file_ in listdir(path) if isfile(f'{path}\{file_}')]
-        print(len(self.files_to_be_moved))
-        for file in self.files_to_be_moved:
-            print(file)
-            suffix = Path(file).suffix
-            folder_name = EXTENSION_DICT[suffix]
-            all_files = listdir(path)
-            if folder_name in all_files:
-                print("exists:", file)
-                shutil.move(file, f'{path}\{folder_name}')
-            else:
-                print("does not exist: ", file)
-                path_to = f'{path}\{folder_name}'
-                makedirs(path_to)
-                shutil.move(file, path_to)
-                
+        if path:
+            self.files_to_be_moved = [f'{path}\{file_}' for file_ in listdir(path) if isfile(f'{path}\{file_}')]
+            for file in self.files_to_be_moved:
+                print(file)
+                suffix = Path(file).suffix
+                folder_name = EXTENSION_DICT[suffix]
+                all_files = listdir(path)
+                if folder_name in all_files:
+                    shutil.move(file, f'{path}\{folder_name}')
+                else:
+                    path_to = f'{path}\{folder_name}'
+                    makedirs(path_to)
+                    shutil.move(file, path_to)
+        else:
+            return
         # print(self.files)
 
 if __name__ == '__main__':
