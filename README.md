@@ -1,6 +1,6 @@
 
 
-![Image of Lazy Koala](https://github.com/KayvT/LazyOrganizer/blob/main/assets/logo.png)
+![Image of Lazy Koala](https://github.com/KayvT/LazyOrganizer/blob/main/assets/window_icon.png)
 
 # LazyOrganizer
 
